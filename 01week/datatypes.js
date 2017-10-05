@@ -70,8 +70,8 @@ function addTwoNumbers(arg1, arg2){
 /*
 Write a JavaScript program that runs only when 2 things are true.
 
-function that returns true
-function returns true when both of the conditionals of the if statement are true, using && to compare
+function that takes two arguments and returns true
+function returns true when both of the arguments conditionals of the if statement are true, using && to compare
 */
 
 function bothTrue(arg1, arg2){
@@ -83,12 +83,12 @@ function bothTrue(arg1, arg2){
 /*
 Write a JavaScript program that runs when 1 or two things are true.
 
-function that returns true
-function returns true when one of the conditionals of the if statement is true, using || to compare
+function that takes two arguments and returns true
+function returns true when either of the arguments conditionals of the if statement are true, using || to compare
 */
 
-function oneTrue(){
-  if(false || true){
+function oneTrue(arg1, arg2){
+  if(arg1 < 5 || arg2 > 0){
   	return true;
   }
 }
@@ -97,13 +97,13 @@ function oneTrue(){
 /*
 Write a JavaScript program that runs when both things are not true.
 
-function that returns true
-if statement that has two conditions that are both false, using &&,
-then return true from the else statement
+function that takes two arguments and returns true
+function returns true when both of the arguments conditionals of the if statement are false
+having the else statement return true using && to compare
 */
 
-function bothNotTrue(){
-  if(false && false){
+function bothNotTrue(arg1, arg2){
+  if(arg1 < 0 && arg2 > 5){
     return false;
   } else {
     return true;

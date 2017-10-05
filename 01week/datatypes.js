@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 /*
 Write a JavaScript program to display the current day and time.
@@ -8,12 +8,12 @@ and time by using a combination of getHour and getMinute
 */
 
 function dayAndTime() {
-    let myDay = new Date();
+  let myDay = new Date();
+  let thisDay = myDay.getDate();
+  let thisHour = myDay.getHours();
+  let thisMinute = myDay.getMinutes();
 
-    let thisDay = myDay.getDate();
-    let thisHour = myDay.getHours();
-    let thisMinute = myDay.getMinutes();
-    return thisDay + ', ' + thisHour + ':' + thisMinute;
+  return thisDay + ', ' + thisHour + ':' + thisMinute;
 }
 
 
@@ -24,7 +24,7 @@ function will take in a number and return a string using concatenation
 */
 
 function numToString(arg){
-    return '' + arg + ''
+  return '' + arg + ''
 }
 
 
@@ -35,7 +35,7 @@ function will take in a string and return a number using parseInt
 */
 
 function stringToNum(arg){
-    return parseInt(arg);
+  return parseInt(arg);
 }
 
 /*
@@ -51,7 +51,7 @@ function will take in a datatype and return what kind of datatype it is using ty
 */
 
 function whatDatatype(arg){
-    return typeof(arg);
+  return typeof(arg);
 }
 
 
@@ -63,7 +63,7 @@ function will take in 2 arguments then return the sum of the 2 arguments
 */
 
 function addTwoNumbers(arg1, arg2){
-    return arg1 + arg2;
+  return arg1 + arg2;
 }
 
 
@@ -74,10 +74,10 @@ function that returns true
 function returns true when both of the conditionals of the if statement are true, using && to compare
 */
 
-function bothTrue(){
-    if(true && false){
-        return true;
-    }
+function bothTrue(arg1, arg2){
+  if(arg1 > 0 && arg2 < 5){
+    return true;
+  }
 }
 
 /*
@@ -88,9 +88,9 @@ function returns true when one of the conditionals of the if statement is true, 
 */
 
 function oneTrue(){
-    if(false || true){
-        return true;
-    }
+  if(false || true){
+  	return true;
+  }
 }
 
 
@@ -103,9 +103,9 @@ then return true from the else statement
 */
 
 function bothNotTrue(){
-    if(false && false){
-        return false;
-    } else {
-        return true;
-    }
+  if(false && false){
+    return false;
+  } else {
+    return true;
+  }
 }

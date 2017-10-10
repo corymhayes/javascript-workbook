@@ -75,7 +75,7 @@ function returns true when both of the arguments conditionals of the if statemen
 */
 
 function bothTrue(arg1, arg2){
-  if(arg1 > 0 && arg2 < 5){
+  if(arg1 === true && arg2 === true){
     return true;
   }
 }
@@ -88,7 +88,7 @@ function returns true when either of the arguments conditionals of the if statem
 */
 
 function oneTrue(arg1, arg2){
-  if(arg1 < 5 || arg2 > 0){
+  if(arg1 === true || arg2 === false){
   	return true;
   }
 }
@@ -102,10 +102,10 @@ function returns true when both of the arguments conditionals of the if statemen
 having the else statement return true using && to compare
 */
 
-function bothNotTrue(arg1, arg2){
-  if(arg1 < 0 && arg2 > 5){
-    return false;
-  } else {
-    return true;
-  }
+function bothNotTrue(arg1, arg2) {
+	if (arg1 !== true && arg2 !== true) {
+		return true;
+	}
 }
+
+console.log(bothNotTrue(false, false));

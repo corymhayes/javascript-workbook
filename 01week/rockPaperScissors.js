@@ -17,17 +17,22 @@ function rockPaperScissors(hand1, hand2) {
 	if((hand1 === 'rock' || hand1 === 'paper' || hand1 === 'scissors') &&
 		 (hand2 === 'rock' || hand2 === 'paper' || hand2 === 'scissors')){
 
+		if((hand1 === 'rock' && hand2 === 'rock') ||
+			 (hand1 === 'paper' && hand2 === 'paper') ||
+			 (hand1 === 'scissors' && hand2 === 'scissors')){
+			console.log("It's a tie!");
+		}
+
+
 		// if hand1 is rock
 		// and hand2 is scissors, hand1 wins
 		// and hand2 is paper, hand2 wins
 		// otherwise its a tie
-		if(hand1 === 'rock'){
-			if(hand2 === 'scissors'){
+		if(hand1 === 'rock') {
+			if (hand2 === 'scissors') {
 				console.log("Hand one wins!");
-			} else if(hand2 === 'paper'){
+			} else if (hand2 === 'paper') {
 				console.log("Hand two wins!");
-			} else {
-				console.log("It's a tie!");
 			}
 		}
 
@@ -40,8 +45,6 @@ function rockPaperScissors(hand1, hand2) {
 				console.log("Hand one wins!");
 			} else if(hand2 === 'scissors'){
 				console.log("Hand two wins!");
-			} else {
-				console.log("It's a tie!");
 			}
 		}
 
@@ -54,8 +57,6 @@ function rockPaperScissors(hand1, hand2) {
 				console.log("Hand two wins!");
 			} else if(hand2 === 'paper'){
 				console.log("Hand one wins!");
-			} else {
-				console.log("It's a tie!");
 			}
 		}
 	} else {

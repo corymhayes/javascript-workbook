@@ -39,6 +39,13 @@ function stringToNum(arg){
 }
 
 /*
+
+/*
+
+Write a JavaScript program to display the current day and time.
+Write a JavaScript program to convert a number to a string.
+Write a JavaScript program to convert a string to the number.
+
 Write a JavaScript program that takes in different datatypes and prints out whether they are a:
 Boolean
 Null
@@ -46,6 +53,7 @@ Undefined
 Number
 NaN
 String
+
 
 function will take in a datatype and return what kind of datatype it is using typeof
 */
@@ -109,3 +117,4 @@ function bothNotTrue(arg1, arg2) {
 }
 
 console.log(bothNotTrue(false, false));
+

@@ -17,9 +17,7 @@ function rockPaperScissors(hand1, hand2) {
 	if((hand1 === 'rock' || hand1 === 'paper' || hand1 === 'scissors') &&
 		 (hand2 === 'rock' || hand2 === 'paper' || hand2 === 'scissors')){
 
-		if((hand1 === 'rock' && hand2 === 'rock') ||
-			 (hand1 === 'paper' && hand2 === 'paper') ||
-			 (hand1 === 'scissors' && hand2 === 'scissors')){
+		if(hand1 === hand2){
 			console.log("It's a tie!");
 		}
 

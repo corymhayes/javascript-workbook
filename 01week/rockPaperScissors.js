@@ -9,15 +9,18 @@ const rl = readline.createInterface({
 
 
 function rockPaperScissors(hand1, hand2) {
+	const rockPaperScissorsArray = ['rock', 'paper', 'scissors'];
+
 	// get rid of whitespace and convert to lower case before beginning to check
 	hand1 = hand1.trim().toLowerCase();
 	hand2 = hand2.trim().toLowerCase();
 
 	// only accept rock, paper, or scissors
-	if((hand1 === 'rock' || hand1 === 'paper' || hand1 === 'scissors') &&
-		 (hand2 === 'rock' || hand2 === 'paper' || hand2 === 'scissors')){
-
-		if(hand1 === hand2){
+	if (rockPaperScissorsArray.indexOf(hand1) < 0 || rockPaperScissorsArray.indexOf(hand2) < 0) {
+		return "Please choose either rock, paper, or scissors.";
+		getPrompt();
+	} else {
+		if (hand1 === hand2) {
 			return "It's a tie!";
 		}
 
@@ -26,7 +29,7 @@ function rockPaperScissors(hand1, hand2) {
 		// and hand2 is scissors, hand1 wins
 		// and hand2 is paper, hand2 wins
 		// otherwise its a tie
-		if(hand1 === 'rock') {
+		if (hand1 === 'rock') {
 			if (hand2 === 'scissors') {
 				return "Hand one wins!";
 			} else if (hand2 === 'paper') {
@@ -38,10 +41,10 @@ function rockPaperScissors(hand1, hand2) {
 		// and hand2 is rock, hand2 wins
 		// and hand2 is scissors, hand1 wins
 		// otherwise its a tie
-		if(hand1 === 'paper'){
-			if(hand2 === 'rock'){
+		if (hand1 === 'paper') {
+			if (hand2 === 'rock') {
 				return "Hand one wins!";
-			} else if(hand2 === 'scissors'){
+			} else if (hand2 === 'scissors') {
 				return "Hand two wins!";
 			}
 		}
@@ -50,19 +53,15 @@ function rockPaperScissors(hand1, hand2) {
 		// and hand2 is rock, hand2 wins
 		// and hand2 is paper, hand1 wins
 		// otherwise its a tie
-		if(hand1 === 'scissors'){
-			if(hand2 === 'rock'){
+		if (hand1 === 'scissors') {
+			if (hand2 === 'rock') {
 				return "Hand two wins!";
-			} else if(hand2 === 'paper'){
+			} else if (hand2 === 'paper') {
 				return "Hand one wins!";
 			}
 		}
-	} else {
-			return "Please choose either rock, paper, or scissors.";
-		 	getPrompt();
 	}
 }
-
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
     rl.question('hand2: ', (answer2) => {

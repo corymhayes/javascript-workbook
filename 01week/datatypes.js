@@ -1,8 +1,51 @@
+'use strict';
+
+/*
+Write a JavaScript program to display the current day and time.
+
+function will return the current day by using getDate
+and time by using a combination of getHour and getMinute
+*/
+
+function dayAndTime() {
+  let myDay = new Date();
+  let thisDay = myDay.getDate();
+  let thisHour = myDay.getHours();
+  let thisMinute = myDay.getMinutes();
+
+  return thisDay + ', ' + thisHour + ':' + thisMinute;
+}
+
+
+/*
+Write a JavaScript program to convert a number to a string.
+
+function will take in a number and return a string using concatenation
+*/
+
+function numToString(arg){
+  return '' + arg + ''
+}
+
+
+/*
+Write a JavaScript program to convert a string to the number.
+
+function will take in a string and return a number using parseInt
+*/
+
+function stringToNum(arg){
+  return parseInt(arg);
+}
+
+/*
+
 /*
 
 Write a JavaScript program to display the current day and time.
 Write a JavaScript program to convert a number to a string.
 Write a JavaScript program to convert a string to the number.
+
 Write a JavaScript program that takes in different datatypes and prints out whether they are a:
 Boolean
 Null
@@ -10,37 +53,68 @@ Undefined
 Number
 NaN
 String
-Write a JavaScript program that adds 2 numbers together.
-Write a JavaScript program that runs only when 2 things are true.
-Write a JavaScript program that runs when 1 of 2 things are true.
-Write a JavaScript program that runs when both things are not true.
 
+
+function will take in a datatype and return what kind of datatype it is using typeof
 */
 
-
-// Write a JavaScript program to display the current day and time
-// function that receives data for getDate and getTime object
-
-
-
-// Write a JavaScript program to convert a number to a string.
-// function takes in a number, toString method to make it a string, returns string
-
-
-
-// Write a JavaScript program to convert a string to the number.
-// function takes in the string, parseInt method to make it a number, return the integer
+function whatDatatype(arg){
+  return typeof(arg);
+}
 
 
 
 /*
-Write a JavaScript program that takes in different datatypes and prints out whether they are a:
-Boolean
-Null
-Undefined
-Number
-NaN
-String
+Write a JavaScript program that adds 2 numbers together.
+
+function will take in 2 arguments then return the sum of the 2 arguments
 */
 
-// function takes in a argument, then use typeof to return what the data type is of said argument
+function addTwoNumbers(arg1, arg2){
+  return arg1 + arg2;
+}
+
+
+/*
+Write a JavaScript program that runs only when 2 things are true.
+
+function that takes two arguments and returns true
+function returns true when both of the arguments conditionals of the if statement are true, using && to compare
+*/
+
+function bothTrue(arg1, arg2){
+  if(arg1 === true && arg2 === true){
+    return true;
+  }
+}
+
+/*
+Write a JavaScript program that runs when 1 or two things are true.
+
+function that takes two arguments and returns true
+function returns true when either of the arguments conditionals of the if statement are true, using || to compare
+*/
+
+function oneTrue(arg1, arg2){
+  if(arg1 === true || arg2 === false){
+  	return true;
+  }
+}
+
+
+/*
+Write a JavaScript program that runs when both things are not true.
+
+function that takes two arguments and returns true
+function returns true when both of the arguments conditionals of the if statement are false
+having the else statement return true using && to compare
+*/
+
+function bothNotTrue(arg1, arg2) {
+	if (arg1 !== true && arg2 !== true) {
+		return true;
+	}
+}
+
+console.log(bothNotTrue(false, false));
+

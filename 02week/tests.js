@@ -16,11 +16,6 @@ if (typeof describe === 'function') {
 			assert.equal(rockPaperScissors('paper', 'scissors'), "Hand two wins!");
 			assert.equal(rockPaperScissors('scissors', 'rock'), "Hand two wins!");
 		});
-		it('should detect that hand two won', () => {
-			assert.equal(rockPaperScissors('rock', 'paper'), "Hand two wins!");
-			assert.equal(rockPaperScissors('paper', 'scissors'), "Hand two wins!");
-			assert.equal(rockPaperScissors('scissors', 'rock'), "Hand two wins!");
-		});
 		it('should detect a valid entry from user', () => {} (
 			assert.equal(rockPaperScissors('rock', 'scissors'), "Valid entry");
 			assert.equal(rockPaperScissors('rock', 'rock'), "Valid entry");

@@ -9,9 +9,45 @@ const rl = readline.createInterface({
 
 
 function pigLatin(word) {
+	//ex. car === arcay
 
-  // Your code here
+  //global variables
+	const wordArray = word.toLowerCase().trim().split('');
+	const vowels = ['a', 'e', 'i', 'o', 'u'];
 
+	//take the first letters of the word up to the first vowel
+		//firstLetters()
+		//comparing the word and vowels arrays to find the first instance of a vowel in the word, indexOf
+	const firstLetters = (word) => {
+		for(let i = 0; i < wordArray.length; i++){
+			for(let j = 0; j < vowels.length; j++){
+				if(wordArray[i] === vowels[j]){
+					return wordArray.indexOf(wordArray[i]);
+				}
+			}
+		}
+	}
+
+  //move them to the back
+		//toTheBack()
+		//take everything preceding the vowel and put it at the end, splice
+	const toTheBackAndAy = () => {
+		if(firstLetters() > 0){
+			const wordSplice = wordArray.splice(0, firstLetters()).join('');
+			wordArray.push(wordSplice + 'ay');
+		} else {
+			wordArray.push('yay');
+		}
+		return wordArray.join('');
+	}
+
+	return toTheBackAndAy();
+	//add 'ay' to the end of it
+		//addingAy()
+		//add ay to the end of the new string, push
+
+	//putting it back together
+		// return join
 }
 
 

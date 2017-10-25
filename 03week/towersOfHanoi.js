@@ -22,6 +22,8 @@ function printStacks() {
 function movePiece() {
   // Your code here
 
+  // .sort().reverse() maybe;
+
 }
 
 function isLegal() {

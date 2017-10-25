@@ -54,7 +54,7 @@ function verticalWin(colNum) {
 	let nArr = [];
 
 	board.map((val) => {
-		nArr.push(val[colNum]);
+	  nArr.push(val[colNum]);
 	});
 	;
 

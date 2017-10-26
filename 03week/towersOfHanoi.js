@@ -24,6 +24,8 @@ function movePiece() {
 
   // .sort().reverse() maybe;
 
+
+
 }
 
 function isLegal() {

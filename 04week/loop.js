@@ -47,3 +47,21 @@ do{
   console.log(i);
   i++;
 } while (i <= 1000);
+
+
+/*
+When is a for loop better than a while loop?
+when you have certain parameters that need to be met
+
+How is the readability of the code affected?
+i like the for loop because everything needed for the loop is all in the parenthesis
+
+What is the difference between a for loop and a for...in loop?
+a for loop runs for as longs as specified in the conditional set
+and a for in loop runs for the length of the object specified
+
+
+What is the difference between a while loop and a do...while loop?
+a do while loop will always run at least once
+
+ */

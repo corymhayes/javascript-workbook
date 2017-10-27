@@ -8,9 +8,9 @@ const rl = readline.createInterface({
 });
 
 let board = [
-  [' ', ' ', ' '],
-  [' ', ' ', ' '],
-  [' ', ' ', ' ']
+  ['X', ' ', ' '],
+  ['X', ' ', ' '],
+  [' ', 'O', 'O']
 ];
 
 let playerTurn = 'X';
@@ -50,6 +50,9 @@ function verticalWin(colNum) {
 		forEach(), return win
 
 	 */
+
+	console.log(colNum);
+
 
 	let nArr = [];
 
@@ -139,12 +142,12 @@ function ticTacToe(row, column) {
   } else {
   	if(playerTurn === 'X') {
 		  board[row][column] = playerTurn;
-		  verticalWin(column);
 		  playerTurn = 'O';
+      verticalWin(column);
 	  } else {
 		  board[row][column] = playerTurn;
+      playerTurn = 'X';
 		  verticalWin(column);
-		  playerTurn = 'X';
 	  }
   }
 

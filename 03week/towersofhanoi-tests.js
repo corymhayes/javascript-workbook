@@ -4,6 +4,3 @@
 
 // It should be over when the numbers are shown high to low on c,
 // checkForWin would look like {a: [], b: [], c: [4, 3, 2, 1]}
-
-
-//

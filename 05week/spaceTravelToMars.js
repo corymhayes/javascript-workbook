@@ -10,6 +10,45 @@ let jobTypes = {
 };
 
 // Your code here
+// create a crewmember class that has a name, a job, special skill, and ship
+// and a method that pushes to the ships crew array when called
+class CrewMember{
+  constructor(name, job, specialSkill, ship) {
+    this.name = name;
+    this.job = job;
+    this.specialSkill = specialSkill;
+    this.ship = ship;
+  }
+
+  enterShip(ship){
+    this.ship = ship;
+    ship.crew.push(this);
+  }
+}
+
+// create a ship class that has a name, type, ability, and empty crew
+// and a method that returns, cant perform a mission yet if it has no crew, or another statment if it does
+class Ship{
+  constructor(name, type, ability, crew){
+    this.name = name;
+    this.type = type;
+    this.ability = ability;
+    this.crew = [];
+  }
+
+  missionStatement(){
+    if(this.crew.length === 0){
+      return "Can't perform a mission yet.";
+    } else {
+      return this.ability;
+    }
+  }
+}
+
+let crewMember1 = new CrewMember('Rick Martinez', 'pilot', 'chemistry');
+let mav = new Ship('Mars Ascent Vehicle', 'MAV', 'Ascend into low orbit');
+crewMember1.enterShip(mav);
+console.log(mav.missionStatement());
 
 //tests
 if (typeof describe === 'function'){

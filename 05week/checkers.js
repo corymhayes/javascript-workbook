@@ -8,8 +8,15 @@ const rl = readline.createInterface({
 });
 
 
-function Checker() {
-  // Your code here
+function Checker(color) {
+  if (color === 'white') {
+    this.symbol = String.fromCharCode(0x125CF);
+    this.color = 'white';
+  }
+  else {
+    this.symbol = String.fromCharCode(0x125CB);
+    this.color = 'black';
+  }
 }
 
 function Board() {
@@ -27,7 +34,7 @@ function Board() {
   };
 
   // prints out the board
-  this.viewGrid = function() {
+  this.viewGrid = () => {
     // add our column numbers
     let string = "  0 1 2 3 4 5 6 7\n";
     for (let row = 0; row < 8; row++) {
@@ -52,15 +59,88 @@ function Board() {
     console.log(string);
   };
 
-  // Your code here
-}
-function Game() {
+  this.populateGrid = () => {
+    // loops through the 8 rows
+    for (let row = 0; row < 8; row++) {
+      // ignores rows which should be empty
+      if (row === 3 || row === 4) continue;
+      // loops through the 8 columns
+      for (let col = 0; col < 8; col++) {
+        // sets current color based on the current row
+        let color = (row < 3 ? 'white' : 'black');
+        // alternates cells to populate with either white or black checkers
+        // then pushes checker to array named checkers
+        if (row % 2 === 0 && col % 2 === 1) {
+          this.grid[row][col] = new Checker(color);
+        } else if (row % 2 === 1 && col % 2 === 0) {
+          this.grid[row][col] = new Checker(color);
+        }
+      }
+    }
+  };
 
+}
+
+function Game() {
   this.board = new Board();
 
   this.start = function() {
     this.board.createGrid();
-    // Your code here
+    this.board.populateGrid();
+  };
+
+  this.moveChecker = (start, end) => {
+    // if there is a piece at start piece and nothing in the end position, move it to the end position
+
+    // reference the players move
+    const pieceToMove = start.split('').map(Number);
+    const endingPosition = end.split('').map(Number);
+
+    // reference the grid itself
+    let startPiece = this.board.grid[pieceToMove[0]][pieceToMove[1]];
+    let endMove = this.board.grid[endingPosition[0]][endingPosition[1]];
+
+    // when moving check for a 'double space' move and if opponent is in the way remove said opponent from the board
+    const jumpKill = () => {
+      let doubleMoveLeftWhite = this.board.grid[endingPosition[0]+2][endingPosition[1]-2];
+      let doubleMoveRightWhite = this.board.grid[endingPosition[0]+2][endingPosition[1]+2];
+      let doubleMoveLeftBlack = this.board.grid[endingPosition[0]-2][endingPosition[1]-2];
+      let doubleMoveRightBlack = this.board.grid[endingPosition[0]-2][endingPosition[1]+2];
+
+      let possibleMoveLeftWhite = this.board.grid[endingPosition[0]+1][endingPosition[1]-1];
+      let possibleMoveRightWhite = this.board.grid[endingPosition[0]+1][endingPosition[1]+1];
+      let possibleMoveLeftBlack = this.board.grid[endingPosition[0]-1][endingPosition[1]-1];
+      let possibleMoveRightBlack = this.board.grid[endingPosition[0]-1][endingPosition[1]+1];
+
+      // figure out which color is moving
+      if(startPiece.color === 'black'){
+        // if the black checker is attempting to move more than one space
+        if((endingPosition[0] === pieceToMove[0]-2) && (endingPosition[1] === pieceToMove[1]-2)){
+          // check if there is a piece to jump and not just a double jump
+          if(possibleMoveLeftBlack){
+            // if so take it off the gameboard
+            console.log(this.board.grid[pieceToMove[0]-1].splice(pieceToMove[1]-1, 1));
+          } else {
+            console.log('one space at a time');
+          }
+        } else {
+          console.log('keep moving');
+        }
+      }
+    }
+
+    // could have put the two together but like being able to send an error between the two
+    if(startPiece){
+      if(!endMove){
+        jumpKill();
+        this.board.grid[endingPosition[0]][endingPosition[1]] = startPiece;
+        this.board.grid[pieceToMove[0]][pieceToMove[1]] = null;
+      } else {
+        return 'already a piece there';
+      }
+    } else {
+      return 'no piece to move';
+    }
   };
 }
 
@@ -76,7 +156,6 @@ function getPrompt() {
 
 const game = new Game();
 game.start();
-
 
 // Tests
 

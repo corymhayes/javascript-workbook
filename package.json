@@ -28,6 +28,7 @@
     "stylelint": "^7.7.1"
   },
   "dependencies": {
+    "functional-javascript": "^0.17.2",
     "functional-javascript-workshop": "^1.0.6",
     "javascripting": "^2.6.1"
   }

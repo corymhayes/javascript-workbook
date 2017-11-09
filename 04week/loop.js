@@ -16,7 +16,7 @@ lastName: "Doe"
 birthDate: "Jan 5, 1925"
 gender: "female"
 Use a for...in loop to console.log each key.
-Then use a for...in loop and if state to console.log the value associated with the key birthDate.
+Then use a for...in loop and if statement to console.log the value associated with the key birthDate.
 
 */
 const persons = {
@@ -29,6 +29,12 @@ const persons = {
 
 for(const val in persons){
   console.log(persons[val]);
+}
+
+for(const val in persons){
+	if(persons[val] === 'birthDate'){
+		console.log(persons['birthDate'][val]);
+	}
 }
 
 

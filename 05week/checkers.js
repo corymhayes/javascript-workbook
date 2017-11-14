@@ -60,7 +60,7 @@ function Game() {
 
   this.start = function() {
     this.board.createGrid();
-    // Your codghee here
+    // Your code here
   };
 }
 

@@ -54,7 +54,7 @@ let userArray = [
 // access chain
 // console.log(userArray[0]['customer']['customerName']);
 
-userArray.map((item, index) => {
+const customers = userArray.map((item) => {
 
   const userName = item['customer']['customerName'];
   const amount = item['customer']['productPrice'];

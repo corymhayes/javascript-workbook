@@ -119,11 +119,14 @@ function Game() {
           // check if there is a piece to jump and not just a double jump
           if(possibleMoveLeftBlack){
             // if so take it off the gameboard
-            console.log(this.board.grid[pieceToMove[0]-1].splice(pieceToMove[1]-1, 1));
+            return this.board.grid[pieceToMove[0]-1].splice(pieceToMove[1]-1, 1);
+          } else if(possibleMoveRightBlack){
+            return this.board.grid[pieceToMove[0]+1].splice(pieceToMove[1]+1, 1);
           } else {
-            console.log('one space at a time');
+            console.log('one move at a time');
           }
         } else {
+          endMove = null;
           console.log('keep moving');
         }
       }
@@ -131,6 +134,7 @@ function Game() {
 
     // could have put the two together but like being able to send an error between the two
     if(startPiece){
+      console.log(endMove);
       if(!endMove){
         jumpKill();
         this.board.grid[endingPosition[0]][endingPosition[1]] = startPiece;

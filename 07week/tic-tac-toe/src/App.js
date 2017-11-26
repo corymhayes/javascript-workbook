@@ -48,8 +48,11 @@ class App extends Component {
       const tempBoard = this.state.board;
       const playerTurn = handlesPlayerTurn();
 
-      if(tempBoard[0] === 'X' && tempBoard[1] === 'X' && tempBoard[2] === 'X'){
-        this.setState({outcome: true, player: playerTurn});
+      if(!this.state.outcome){
+        if((tempBoard[0] === 'X' && tempBoard[1] === 'X' && tempBoard[2] === 'X') ||
+           (tempBoard[0] === 'O' && tempBoard[1] === 'O' && tempBoard[2] === 'O')){
+          this.setState({outcome: true, player: playerTurn});
+        }
       }
     }
 

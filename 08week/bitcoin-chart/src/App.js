@@ -5,28 +5,23 @@ import Graph from './Graph';
 import './App.css';
 
 class App extends Component {
-  state = {
-    bitcoin: []
+  constructor(props){
+    super(props);
+    this.state = {
+      bitcoin: [],
+      lastAmount: 0
+    }
   }
-
-  // hashDate = () => {
-  //   const bitcoinTempArr = this.state.bitcoin;
-  //   const myDate = this.state.bitcoinTempArr.map((item) => {
-  //     let myDate = new Date((item.x) * 1000).toUTCString().slice(5, 16);
-  //
-  //   });
-  //   this.setState({bitcoin: bitcoinTempArr})
-  // }
 
   componentDidMount = () => {
     const that = this;
     fetch('https://api.blockchain.info/charts/market-price?timespan=all&format=json')
     .then((response) => response.json())
     .then((responseJson) => {
-      that.setState({bitcoin:
+      this.setState({bitcoin:
         responseJson.values.map((item) => {
           return {x: new Date(item.x * 1000).toUTCString().slice(8, 16), y: item.y}
-        })
+        }), lastAmount: responseJson.values[responseJson.values.length-1].y
       })
     }).catch((error) => {
       console.error(error);
@@ -40,6 +35,7 @@ class App extends Component {
           <CardHeader
             title="Bitcoin"
             titleStyle={{fontSize: 24}}
+            subtitle={"Current Amount: $" + this.state.lastAmount.toLocaleString()}
           />
           <CardMedia>
             <Graph chartData={this.state.bitcoin}/>

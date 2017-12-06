@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { AreaChart, Area, XAxis, YAxis, Label, Tooltip } from 'recharts';
+import { AreaChart, Area, XAxis, YAxis, Tooltip } from 'recharts';
+import './App.css';
 
 class Graph extends Component {
   constructor(props){
@@ -14,10 +15,10 @@ class Graph extends Component {
         data={this.props.chartData}
         margin={{top: 0, right: 50, left: 10, bottom: 25}}
       >
-        <XAxis dataKey='x' style={{fontSize: 12, fontFamily: 'Ubuntu'}} />
+        <XAxis className="XAxis" dataKey='x' />
         <YAxis style={{fontSize: 12, fontFamily: 'Ubuntu'}}/>
         <Tooltip />
-        <Area type="natural" dataKey='y' baseLine={8} stroke={false} fillOpacity={1} fill="#ff0000" />
+        <Area type="natural" dataKey='y' baseLine={8} stroke='#fff' fillOpacity={1} fill="#ff0000" />
       </AreaChart>
     );
   }

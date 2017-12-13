@@ -15,7 +15,7 @@ class App extends Component {
 
   componentDidMount = () => {
     const that = this;
-    fetch('https://api.blockchain.info/charts/market-price?timespan=all&format=json')
+    fetch('https://api.blockchain.info/charts/market-price?timespan=all&cors=true&format=json')
     .then((response) => response.json())
     .then((responseJson) => {
       this.setState({bitcoin:

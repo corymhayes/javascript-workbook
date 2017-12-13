@@ -1,0 +1,21 @@
+body{
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+  background-color: #263238;
+}
+
+.App{
+  height: 100%;
+  width: 100%;
+  background-color: #263238;
+}
+
+.XAxis{
+  font-size: 12;
+  font-family: 'Ubuntu';
+}
+
+.bitcoinGrid{
+  margin-top: 50px;
+}
